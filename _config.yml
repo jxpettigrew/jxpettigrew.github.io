@@ -29,7 +29,7 @@ twitter_username: jxpettigrew
 github_username:  jxpettigrew
 
 # Build settings
-remote_theme: niklasbuschmann/jekyll-theme-contrast
+theme: minima
 plugins:
   - jekyll-feed
   - jekyll-remote-theme
