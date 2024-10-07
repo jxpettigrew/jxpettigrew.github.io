@@ -29,7 +29,7 @@ twitter_username: jxpettigrew
 github_username:  jxpettigrew
 
 # Build settings
-remote_theme: cotes2020/jekyll-theme-chirpy
+remote_theme: niklasbuschmann/jekyll-theme-contrast
 plugins:
   - jekyll-feed
   - jekyll-remote-theme
