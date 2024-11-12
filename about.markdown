@@ -4,8 +4,6 @@ title: About
 permalink: /about/
 ---
 
-# About
-
 ## About me
 I love puzzles, games, and learning things. I wish the world were a little less interesting because I'd probably get a lot more done.
 
