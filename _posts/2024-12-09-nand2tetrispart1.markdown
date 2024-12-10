@@ -1,8 +1,10 @@
+---
 layout: post
 title: "Nand2Tetris, Unit 1"
 description: "Constructing logic gates"
 date: 2024-12-09
 categories: [nand2Tetris, computer architecture]
+---
 
 One of my favorite topics in my computer science degree was computer architecture. From logic gates to instruction sets to assembly language, few aspects of the field are more fascinating to me than the logic and components that allow a computer to *compute*. While I understand most of these concepts in theory, I've always wanted to revisit them in a more in-depth, hands-on fashion because they're so foundational.
 

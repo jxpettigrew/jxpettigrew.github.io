@@ -18,14 +18,14 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: Jordan Pettigrew
+title: Advanced Persistent Thoughts
 email: jxpettigrew@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
   occasional thoughts on tech, security, and other stuff
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "jxpettigrew.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 repository: jxpettigrew/jxpettigrew.github.io
-twitter_username: jxpettigrew
+# twitter_username: jxpettigrew
 github_username:  jxpettigrew
 
 # Build settings
