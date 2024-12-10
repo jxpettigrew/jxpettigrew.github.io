@@ -21,7 +21,7 @@ The first project is dedicated to building the logic gates that will eventually 
 **Logic gates**: circuits designed to perform Boolean operations on one or more inputs in order to produce a certain output
 
 ## Gates
-Small disclaimer: not all of these gate implementations are fully optimized. In some cases, I opted for a more intuitive but slightly less optimized implementation. In other cases, I simply haven't worked out the absolute most optimal implementations myself, but I don't want to just look up the answers. Optimization may merit its own separate post sometime in the future.
+Small disclaimer: not all of these gate implementations are fully optimized. In some cases, I opted for a more intuitive but unoptimized implementation. In other cases, I simply haven't worked out the exact optimal implementations myself, but I don't want to just look up the answers. Optimization may warrant its own separate post sometime in the future.
 
 ### Not
 ```Boolean
@@ -78,7 +78,7 @@ And(a=in, b=notSel, out=a);
 The demultiplexer gate performs the opposite of the multiplexer operation: that is, it takes an input and assigns it to one of two different output channels. To implement it, we need to use two And gates: one takes the values of the input and the inversion of the selection bit and outputs *a*, while the other takes the values of the input and the selection bit and outputs *b*.
 
 ### 16-bit gates
-The next part of the assignment involves implementing 16-bit versions of the Not, And, Or, and Mux gates. This is very simple, as it just requires performing sixteen bitwise operations on the 16-bit buses being input using the corresponding 1-bit gates we just designed. For example, the parts for the And gate look like this:
+The next part of the assignment involves implementing 16-bit versions of the Not, And, Or, and Mux gates. This requires simply performing sixteen bitwise operations on the 16-bit input buses using the corresponding 1-bit gates we just designed. For example, the parts for the And gate look like this:
 ```
 PARTS:
 And(a=a[0], b=b[0], out=out[0]);
@@ -117,7 +117,7 @@ Mux4Way16(a=a, b=b, c=c, d=d, sel=sel[0..1], out=temp1);
 Mux4Way16(a=e, b=f, c=g, d=h, sel=sel[0..1], out=temp2);
 Mux16(a=temp1, b=temp2, sel=sel[2], out=out);
 ```
-The 8-way multiplexer gate extends the logic of the 4-way mux gate, with two 4-way gates taking the place of the first two 2-way gates in the Mux4Way16 implementation above, each using the two least significant bits (sel[0..1]) of the selector to determine its output. A Mux16 gate then uses the most significant bit (sel[2]) of the 3-bit selector to select the correct value.
+The 8-way multiplexer gate extends the logic of the 4-way Mux gate, with two 4-way gates taking the place of the first two 2-way gates in the Mux4Way16 implementation above, each using the two least significant bits (sel[0..1]) of the selector to determine its output. A Mux16 gate then uses the most significant bit (sel[2]) of the 3-bit selector to select the correct value.
 
 ### DMux4Way
 ```Boolean
@@ -126,7 +126,7 @@ DMux(in=in, sel=sel[0], a=aOrC, b=bOrD);
 DMux(in=bOrD, sel=sel[1], a=b, b=d);
 DMux(in=aOrC, sel=sel[1], a=a, b=c);
 ```
-The 4-way demultiplexer gate operates much like the basic 2-way demultiplexer gate we've already designed. For the first demux gate, we'll input the data bit and the least significant bit of the selector. If the least significant selector bit is 0, the output of the first gate will be channeled to another demux gate that will use the *most* significant selector bit to determine whether the final output should be *a* or *c*; if the least significant selector bit is 1, the output will be channeled to a third gate, which will determine whether the output is *b* or *d*.
+The 4-way demultiplexer gate operates much like the basic 2-way demultiplexer gate we've already designed. For the first DMux gate, we'll input the data bit and the least significant bit of the selector. If the least significant selector bit is 0, the output of the first gate will be channeled to another DMux gate that will use the *most* significant selector bit to determine whether the final output should be *a* or *c*; if the least significant selector bit is 1, the output will be channeled to a third gate, which will determine whether the output is *b* or *d*.
 
 Put more simply, we're breaking the demultiplexing process into two phases by splitting the 2-bit selector into two individual selector bits.
 
@@ -137,7 +137,7 @@ DMux(in=in, sel=sel[2], a=former, b=latter);
 DMux4Way(in=former, sel=sel[0..1], a=a, b=b, c=c, d=d);
 DMux4Way(in=latter, sel=sel[0..1], a=e, b=f, c=g, d=h);
 ```
-If you've noticed a pattern here, then you can probably guess that the 8-way demultiplexer gate extends the logic of the 4-way demux gate. We first set up a basic 2-way demux gate with the most significant bit of the 3-bit selector to split the gates into two groups of four. We then use two DMux4Way gates to handle these two groups, using the two least significant bits of the selector to finally channel the output to the correct gate.
+If you've noticed a pattern here, then you can probably guess that the 8-way demultiplexer gate extends the logic of the 4-way DMux gate. We first set up a basic 2-way DMux gate with the most significant bit of the 3-bit selector to split the gates into two groups of four. We then use two DMux4Way gates to handle these two groups, using the two least significant bits of the selector to finally channel the output to the correct gate.
 
 ## Concluding thoughts
 Anyone who's spent any time at all programming probably won't find the most elementary gates here all that revelatory, but personally, the real value of the project was in being forced to become familiar with the multiplexer/demultiplexer gates and multi-bit/multi-way gates. You can read about these things all day, but that will never provide the same intuitive understanding as actually using (or, in this case, building) them. It's also a good exercise in Boolean logic if you're unfamiliar or out of practice.
