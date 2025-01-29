@@ -8,7 +8,7 @@ categories: [nand2Tetris, computer architecture]
 
 One of my favorite topics in my computer science degree was computer architecture. From logic gates to instruction sets to assembly language, few aspects of the field are more fascinating to me than the logic and components that allow a computer to *compute*, and I've always wanted to revisit them in a more in-depth, hands-on fashion because they're so foundational.
 
-Enter [nand2Tetris](https://www.nand2tetris.org/), a course that starts from the most fundamental building blocks of architecture and takes you through the construction of a functioning CPU, along with RAM and an assembler (a subsequent course focuses on building a high-level programming language, a corresponding compiler, and an operating system for your new makeshift virtual computer). It's the exact sort of hands-on experience I wanted, and so I thought I'd share my thought process as I work through the projects in the course.
+Enter [nand2Tetris](https://www.nand2tetris.org/), a course that starts from the most fundamental building blocks of architecture and takes you through the construction of a functioning CPU, along with RAM and an assembler (a subsequent course focuses on building a high-level programming language, a corresponding compiler, and an operating system for your new makeshift virtual computer). It's the exact sort of hands-on refresher I wanted, and so I thought I'd share my thought process as I work through the projects in the course.
 
 ## Project 1
 The first project is dedicated to building the logic gates that will eventually be used to construct an ALU. To do this, we're given the very basic Nand (not-and) gate and must use it along with Boolean logic to construct other logic gates of increasing complexity.
